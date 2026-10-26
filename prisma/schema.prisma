@@ -1,0 +1,33 @@
+// Prisma Schema - konfigurasi koneksi database dan model data
+
+// Generator: menentukan client yang akan dibuat oleh Prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Datasource: konfigurasi koneksi ke database MySQL
+// DATABASE_URL dibaca dari file .env
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Model Product: representasi tabel "products" di database
+// Setiap field di sini = kolom di tabel MySQL
+model Product {
+  id          Int      @id @default(autoincrement()) // Primary key, auto increment
+  name        String   @db.VarChar(255)              // Nama produk, max 255 karakter
+  description String?  @db.Text                      // Deskripsi (opsional)
+  price       Float                                  // Harga produk
+  stock       Int      @default(0)                   // Stok produk, default 0
+  createdAt   DateTime @default(now())               // Waktu dibuat (otomatis)
+  updatedAt   DateTime @updatedAt                    // Waktu diupdate (otomatis)
+
+  @@map("products") // Nama tabel di database adalah "products"
+}
+
+model User {
+  id  Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  email String @db.VarChar(255)
+}
