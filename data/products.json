@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop",
+        "price": 7500000
+    },
+    {
+        "id": 2,
+        "name": "Keyboard Mechanical",
+        "price": 650000
+    },
+    {
+        "id": 3,
+        "name": "Mouse Wireless",
+        "price": 250000
+    },
+    {
+        "id": 4,
+        "name": "Keyboard Mechanical",
+        "price": 650000
+    }
+]
